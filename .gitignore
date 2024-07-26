@@ -44,3 +44,5 @@ yarn-error.log*
 
 # Cypress test videos
 cypress/videos/
+
+*storybook.log
