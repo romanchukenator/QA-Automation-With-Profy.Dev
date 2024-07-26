@@ -8,7 +8,9 @@ import Axios from "axios";
 // );
 
 export const axios = Axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  baseURL:
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    "https://jcr-test.free.beeceptor.com",
 });
 
 axios.interceptors.response.use(
