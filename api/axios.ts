@@ -1,4 +1,4 @@
-// import assert from "assert";
+import assert from "assert";
 import Axios from "axios";
 
 // TODO Set NEXT_PUBLIC_API_BASE_URL in Git repo
@@ -8,9 +8,7 @@ import Axios from "axios";
 // );
 
 export const axios = Axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_BASE_URL ||
-    "https://jcr-test.free.beeceptor.com",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 });
 
 axios.interceptors.response.use(
