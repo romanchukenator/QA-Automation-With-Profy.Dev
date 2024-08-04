@@ -14,7 +14,7 @@ test.describe("Sidebar Navigation", () => {
       // await page.get;
       expect(
         await page.getByRole('link', { name: "Projects", exact: true })
-      ).toHaveAttributez('href', '/dashboard');
+      ).toHaveAttribute('href', '/dashboard');
     });
   });
 });
