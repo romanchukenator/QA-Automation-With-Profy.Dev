@@ -1,0 +1,19 @@
+import eslint from "@eslint/js";
+import teslint from "typescript-eslint";
+
+export default teslint.config(
+  eslint.configs.recommended,
+  ...teslint.configs.recommended,
+  {
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: ".", // This should be the root directory of your project
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/await-thenable": "error",
+    },
+  },
+);
