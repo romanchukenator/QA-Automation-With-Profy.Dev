@@ -8,7 +8,7 @@ test.describe("Sidebar Navigation", () => {
     test.beforeEach(async ({ page }) => {
       page.setViewportSize({ width: 1025, height: 900 });
       await page.goto('http://localhost:3000/dashboard');
-    });
+    });;
 
     test('links work as expected', async ({ page }) => {
       // await page.get;
