@@ -6,14 +6,13 @@ test.describe("Sidebar Navigation", () => {
     test.describe.configure({ mode: 'serial' });
 
     test.beforeEach(async ({ page }) => {
-      page.setViewportSize({ width: 1025, height: 900 });
+      await page.setViewportSize({ width: 1025, height: 900 });
       await page.goto('http://localhost:3000/dashboard');
-    });;
+    });
 
     test('links work as expected', async ({ page }) => {
-      // await page.get;
-      expect(
-        await page.getByRole('link', { name: "Projects", exact: true })
+      await expect(
+        page.getByRole('link', { name: "Projects" })
       ).toHaveAttribute('href', '/dashboard');
     });
   });

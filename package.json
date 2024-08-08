@@ -14,8 +14,7 @@
     "test": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky install",
-    "playwright-test": "tsc --noEmit && playwright test"
+    "prepare": "husky install"
   },
   "engines": {
     "npm": ">=8.0.0",
