@@ -10,10 +10,39 @@ test.describe("Sidebar Navigation", () => {
       await page.goto('http://localhost:3000/dashboard');
     });
 
-    test('links work as expected', async ({ page }) => {
+    test("links work as expected", async ({ page }) => {
       await expect(
-        page.getByRole('link', { name: "Projects" })
+        page.getByRole('navigation').getByText("Projects")
       ).toHaveAttribute('href', '/dashboard');
+
+      await expect(
+        page.getByRole('navigation').getByText("Issues")
+      ).toHaveAttribute('href', '/dashboard/issues');
+
+      await expect(
+        page.getByRole('navigation').getByText("Alerts")
+      ).toHaveAttribute('href', '/dashboard/alerts');
+
+      await expect(
+        page.getByRole('navigation').getByText("Users")
+      ).toHaveAttribute('href', '/dashboard/users');
+
+      await expect(
+        page.getByRole('navigation').getByText("Settings")
+      ).toHaveAttribute('href', '/dashboard/settings');
+    });
+
+    test("nav. bar is collapsible", async ({ page }) => {
+      // collpase navigation
+      await page.getByRole('button', { name: "Collapse" }).click();
+
+      await expect(
+        page.getByRole('navigation').getByRole('link')
+      ).toHaveCount(5);
+
+      await expect(
+        page.getByRole('navigation')
+      ).not.toHaveText("Issues");
     });
   });
 });
@@ -34,3 +63,4 @@ test.describe("Sidebar Navigation", () => {
 //   // Expects page to have a heading with the name of Installation.
 //   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 // });
+//
